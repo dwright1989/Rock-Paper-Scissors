@@ -4,9 +4,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Rock, Paper, Scissors</title>
 </head>
+
 <body>
+    <header><h1><span class="neonWhite">*</span>
+        <span class="neonPink">Rock</span>
+        <span class="neonWhite">*</span>
+        <span class="neonYellow">Paper</span>
+        <span class="neonWhite">*</span>
+        <span class="neonGreen">Scissors</span>
+        <span class="neonWhite">*</span>
+    </h1></header>
+    <div id="gameContent">
+        <div id="instructions">
+            <div id="resultsContainer">
+
+                
+                
+                <div id="playerChoice">
+                    <p>You: <span id="playerScore">0</span></p>
+                </div> <!-- display what player chose plus their score -->
+                <div id="computerChoice">
+                    <p>Computer: <span id="computerScore">0</span></p>
+                </div> <!-- as above but with computer -->
+            </div>
+            
+            <div id="whoWon">Make Your Selection</div> <!-- who won this round -->
+        </div>
+    
+        <div id="buttonsContainer">
+                <figure class="imageContainer">
+                    <span class="circle">
+                        <img src="images/rock.png" alt="Rock image" id="Rock" class="playerButton">
+                    </span>
+                    
+                    <figcaption class="caption">Rock</figcaption>
+                </figure>
+                <figure class="imageContainer">
+                    <img src="images/paper.png" alt="Paper image" id="Paper" class="playerButton">
+                    <figcaption class="caption">Paper</figcaption>
+                </figure>
+                <figure class="imageContainer">
+                    <img src="images/scissors.png" alt="Scissors image" id="Scissors" class="playerButton">
+                    <figcaption class="caption">Scissors</figcaption>
+                </figure>
+                
+           
+            
+            
+        </div>
+        
+           
+        
+    
+        
+    </div>
+   
     <script src="script.js"></script>
+
+    <!--<footer><a href="https://www.vecteezy.com/free-vector/rock-paper-scissors">Rock Paper Scissors Vectors by Vecteezy</a>-->
+    </footer>
 </body>
 </html>
