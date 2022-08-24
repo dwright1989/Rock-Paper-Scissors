@@ -42,6 +42,7 @@ Update the score accordingly (Paper beats Rock, Rock beats Scissors, Scissors be
 function playRound (playerSelection){
 
     let computerSelection = computerPlay();
+    addImageComp(computerSelection);
 
     let theResultText = document.getElementById("whoWon");
     
@@ -134,10 +135,36 @@ function game(){
                 playerButtons[i].addEventListener('click', function(){
                     console.log(this.id);
                     playRound (this.id);
+                    // add the image to the score board
+                    addImage(this.id);
                 
                 }) ; 
             }     
         
+}
+
+function addImage(imageName){
+    imageName = imageName.toLowerCase() + "hover";
+    let imageSpace = document.getElementById("playerSelectionImage");
+    imageSpace.innerHTML = "";
+    // create the element
+    var elem = document.createElement("img");
+    elem.src = 'images/'+imageName+'.png';
+    elem.classList.add("selectionImage");
+    console.log("imagespace:" + imageSpace);
+    imageSpace.appendChild(elem);
+}
+
+function addImageComp(imageName){
+    imageName = imageName.toLowerCase() + "hover";
+    let imageSpace = document.getElementById("computerSelectionImage");
+    imageSpace.innerHTML = "";
+    // create the element
+    var elem = document.createElement("img");
+    elem.src = 'images/'+imageName+'.png';
+    elem.classList.add("selectionImage");
+    console.log("imagespace:" + imageSpace);
+    imageSpace.appendChild(elem);
 }
         
 
