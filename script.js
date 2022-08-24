@@ -26,10 +26,12 @@ Check to see if anyone has a score of 5 yet
 */
 function checkWinner(){ // #################### change to return winner
     console.log("in the check winner function");
-    if(userScore == 5 || computerScore ==5){
-        return true;
+    if(userScore == 5){
+        return "You";
+    }else if(computerScore ==5){
+        return "Computer";
     }else{
-        return false;
+        return "no";
     }
 }
 
@@ -108,11 +110,39 @@ function playRound (playerSelection){
     computerScoreElement.innerText = computerScore;
 
     /* Check to see if anyone has won the game */
-    let hasAnyoneWon = checkWinner();
-    console.log(hasAnyoneWon);
-    if(hasAnyoneWon){
-        alert("Game Over"); // to be completed to wipe score and display
-    }
+        let hasAnyoneWon = checkWinner();
+        console.log(hasAnyoneWon);
+        if(hasAnyoneWon!="no"){
+            setTimeout(function() { 
+                let alertConfirm = confirm("Game Over. " + hasAnyoneWon + " won! Click OK to play again"); 
+                if(alertConfirm){
+                    resetScores();
+                }
+        }, 10); 
+        
+            
+        }
+}
+
+function resetScores(){
+    // set scores to 0
+    
+    userScore = 0;
+    computerScore = 0;
+    // reload html
+    let userScoreElement = document.getElementById("playerScore");
+    userScoreElement.innerText = userScore;
+    console.log("computer score: " + computerScore);
+    let computerScoreElement = document.getElementById("computerScore");
+    computerScoreElement.innerText = computerScore;
+
+    // remove selected images
+    let imageSpaceP = document.getElementById("playerSelectionImage");
+    imageSpaceP.innerHTML = "";
+    let imageSpaceC = document.getElementById("computerSelectionImage");
+    imageSpaceC.innerHTML = "";
+
+    
 }
 
 /*
@@ -120,12 +150,7 @@ Let's start the game!
 */
 function game(){
    
-    // loop 5 times (the number of times we play the game)
-    //for(let i=0; i<5; i++){
-        // get the user input
-        //let userInput = prompt("What's your choice? Rock, Paper or Scissors?");
 
-        
             console.log("in the game function");
             const playerButtons = document.getElementsByClassName("playerButton");
             console.log(playerButtons);
@@ -134,9 +159,10 @@ function game(){
                 console.log("in the for function");
                 playerButtons[i].addEventListener('click', function(){
                     console.log(this.id);
-                    playRound (this.id);
                     // add the image to the score board
                     addImage(this.id);
+                    playRound (this.id);
+                    
                 
                 }) ; 
             }     
